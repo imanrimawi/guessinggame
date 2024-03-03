@@ -1,33 +1,29 @@
 import random
 
 def computer_guess_number():
-    lower_bound = 0
-    upper_bound = 100
-    number_to_guess = random.randint(lower_bound, upper_bound)
+    number_to_guess = random.randint(0, 100)
     guesses = 0
 
-    print("Hello!!!! Welcome to the Number Guessing Game!")
-    print("Please start by thinking of a number between 0 and 100, which the computer will guess.")
+    print("Welcome to the Number Guessing Game!!!!!!!!")
+    print("Please think of a number between 0 and 100, and I'll try to guess it.")
 
     while True:
-        guess = random.randint(lower_bound, upper_bound)
-        print(f"Computer's guess: {guess}")
+        guess = random.randint(0, 100)
+        print(f"My guess is: {guess}")
         guesses += 1
 
-        feedback = input("Is the guess correct, too low, or too high? ").upper()
+        feedback = input("Is it correct, too low, or too high? ").lower()
 
         if feedback == "correct":
-            print(f"Computer guessed the number {number_to_guess} correctly in {guesses} guesses!!!!")
+            print(f"I got it! Your number is {number_to_guess}. It took me {guesses} guesses!")
             break
         elif feedback == "too low":
-            lower_bound = guess + 1
+            print("Okay, I'll guess higher.")
         elif feedback == "too high":
-            upper_bound = guess - 1
+            print("Okay, I'll guess lower.")
         else:
-            print("Invalid input. Please enter either correct, too low, or too high.")
+            print("Invalid input. Please enter correct, too low, or too high.")
 
 def main():
     computer_guess_number()
 
-if __name__ == "__main__":
-    main()
